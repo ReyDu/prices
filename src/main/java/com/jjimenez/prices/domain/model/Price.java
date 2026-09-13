@@ -5,7 +5,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
+import lombok.Builder;
 
+@Builder(toBuilder = true)
 public record Price(
     Brand brand,
     Long productId,

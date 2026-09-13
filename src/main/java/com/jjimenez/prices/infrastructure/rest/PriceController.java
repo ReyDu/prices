@@ -31,7 +31,7 @@ public class PriceController implements BrandsApi {
         .applicationDate(applicationDate)
         .build();
 
-    Price price = this.getApplicablePriceUseCase.getApplicablePrice(
+    Price price = this.getApplicablePriceUseCase.getPrice(
         priceCriteria);
 
     PriceResponse response = this.priceRestMapper.toResponse(price);

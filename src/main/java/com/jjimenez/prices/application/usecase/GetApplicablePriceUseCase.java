@@ -4,6 +4,6 @@ import com.jjimenez.prices.domain.model.Price;
 
 public interface GetApplicablePriceUseCase {
 
-  public Price getApplicablePrice(PriceCriteria priceCriteria);
+  public Price getPrice(PriceCriteria priceCriteria);
 
 }

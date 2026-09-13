@@ -16,7 +16,7 @@ public class GetApplicablePrice implements GetApplicablePriceUseCase {
   private final GetPricesPort getPricesPort;
 
   @Override
-  public Price getApplicablePrice(PriceCriteria priceCriteria) {
+  public Price getPrice(PriceCriteria priceCriteria) {
 
     Integer brandId = priceCriteria.brandId();
 
