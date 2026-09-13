@@ -16,6 +16,7 @@ paths:
           schema:
             type: integer
             format: int64
+            minimum: 1
         - name: productId
           in: path
           description: Identificador del producto
@@ -23,6 +24,7 @@ paths:
           schema:
             type: integer
             format: int64
+            minimum: 1
         - name: applicationDate
           in: query
           description: Fecha y hora de aplicación

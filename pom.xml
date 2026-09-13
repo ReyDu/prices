@@ -95,6 +95,11 @@
       <artifactId>spring-boot-starter-webmvc-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>1.5.5.Final</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -118,6 +123,17 @@
                 <path>
                   <groupId>org.projectlombok</groupId>
                   <artifactId>lombok</artifactId>
+                </path>
+                <!-- Procesador de MapStruct -->
+                <path>
+                  <groupId>org.mapstruct</groupId>
+                  <artifactId>mapstruct-processor</artifactId>
+                  <version>1.5.5.Final</version>
+                </path>
+                <path>
+                  <groupId>org.projectlombok</groupId>
+                  <artifactId>lombok-mapstruct-binding</artifactId>
+                  <version>0.2.0</version>
                 </path>
               </annotationProcessorPaths>
             </configuration>
@@ -157,6 +173,13 @@
                 <interfaceOnly>true</interfaceOnly>
                 <useSpringBoot3>true</useSpringBoot3>
               </configOptions>
+              <typeMappings>
+                <typeMapping>DateTime=java.time.LocalDateTime</typeMapping>
+                <typeMapping>date-time=java.time.LocalDateTime</typeMapping>
+              </typeMappings>
+              <importMappings>
+                <importMapping>java.time.LocalDateTime=java.time.LocalDateTime</importMapping>
+              </importMappings>
             </configuration>
           </execution>
         </executions>
