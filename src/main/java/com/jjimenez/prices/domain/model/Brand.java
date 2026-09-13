@@ -25,4 +25,13 @@ public enum Brand {
       throw new BrandNotFoundException("Brand with id " + brandId + " does not exist");
     }
   }
+
+  public static Brand fromId(int id) {
+    for (Brand brand : Brand.values()) {
+      if (brand.getId() == id) {
+        return brand;
+      }
+    }
+    throw new BrandNotFoundException("Brand with id " + id + " does not exist");
+  }
 }

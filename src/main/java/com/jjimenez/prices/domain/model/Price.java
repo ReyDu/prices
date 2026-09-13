@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public record Price(
-    Integer brandId,
+    Brand brand,
     Long productId,
     Integer priceList,
     LocalDateTime startDate,
