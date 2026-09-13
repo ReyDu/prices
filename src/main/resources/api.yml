@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: Prices API
+  version: 1.0.0
+  description: API REST para consulta de precios finales aplicables.
+paths:
+  /brands/{brandId}/products/{productId}/prices:
+    get:
+      summary: Obtener el precio aplicable
+      operationId: getApplicablePrice
+      parameters:
+        - name: brandId
+          in: path
+          description: Identificador de la cadena
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+        - name: productId
+          in: path
+          description: Identificador del producto
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+        - name: applicationDate
+          in: query
+          description: Fecha y hora de aplicación
+          required: true
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Tarifa aplicable encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceResponse'
+        '400':
+          description: Parámetros de entrada inválidos
+        '404':
+          description: No se encontró tarifa para los datos proporcionados
+components:
+  schemas:
+    PriceResponse:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+        brandId:
+          type: integer
+          format: int32
+        priceList:
+          type: integer
+          format: int32
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        price:
+          type: number
+          format: double
