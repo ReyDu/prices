@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
   @ExceptionHandler({PriceNotFoundException.class, BrandNotFoundException.class})
-  public ResponseEntity<ErrorResponse> handlePriceNotFound(PriceNotFoundException ex) {
+  public ResponseEntity<ErrorResponse> handlePriceNotFound(RuntimeException ex) {
     ErrorResponse error = new ErrorResponse(
         LocalDateTime.now(),
         HttpStatus.NOT_FOUND.value(),
