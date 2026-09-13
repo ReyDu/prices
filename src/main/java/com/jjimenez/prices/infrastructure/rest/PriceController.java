@@ -21,7 +21,7 @@ public class PriceController implements BrandsApi {
 
   @Override
   public ResponseEntity<PriceResponse> getApplicablePrice(
-      Long brandId,
+      Integer brandId,
       Long productId,
       LocalDateTime applicationDate) {
 

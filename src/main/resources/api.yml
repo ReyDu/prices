@@ -15,7 +15,7 @@ paths:
           required: true
           schema:
             type: integer
-            format: int64
+            format: int32
             minimum: 1
         - name: productId
           in: path
@@ -53,7 +53,7 @@ components:
           format: int64
         brandId:
           type: integer
-          format: int64
+          format: int32
         priceList:
           type: integer
           format: int32

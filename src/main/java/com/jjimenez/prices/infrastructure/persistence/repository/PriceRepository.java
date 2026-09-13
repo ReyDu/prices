@@ -17,7 +17,7 @@ public interface PriceRepository extends JpaRepository<PriceEntity, Long> {
             AND :applicationDate BETWEEN p.startDate AND p.endDate
       """)
   List<PriceEntity> findCandidates(
-      @Param("brandId") Long brandId,
+      @Param("brandId") Integer brandId,
       @Param("productId") Long productId,
       @Param("applicationDate") LocalDateTime applicationDate
   );

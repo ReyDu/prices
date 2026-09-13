@@ -19,7 +19,7 @@ public class GetPricesService implements GetPricesPort {
   private final PriceMapper priceMapper;
 
   @Override
-  public List<Price> findPrices(Long brandId, Long productId, LocalDateTime applicationDate) {
+  public List<Price> findPrices(Integer brandId, Long productId, LocalDateTime applicationDate) {
     List<PriceEntity> priceEntityList = priceRepository.findCandidates(
         brandId, productId, applicationDate);
 

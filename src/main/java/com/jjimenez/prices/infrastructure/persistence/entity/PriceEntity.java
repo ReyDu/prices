@@ -29,7 +29,7 @@ public class PriceEntity {
   private Long id;
 
   @Column(name = "BRAND_ID")
-  private Long brandId;
+  private Integer brandId;
 
   @Column(name = "START_DATE")
   private LocalDateTime startDate;

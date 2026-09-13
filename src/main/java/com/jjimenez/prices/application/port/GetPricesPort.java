@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface GetPricesPort {
 
-  List<Price> findPrices(Long brandId, Long productId, LocalDateTime applicationDate);
+  List<Price> findPrices(Integer brandId, Long productId, LocalDateTime applicationDate);
 
 }

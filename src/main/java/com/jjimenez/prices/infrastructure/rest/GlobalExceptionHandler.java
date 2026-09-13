@@ -1,5 +1,6 @@
 package com.jjimenez.prices.infrastructure.rest;
 
+import com.jjimenez.prices.domain.exception.BrandNotFoundException;
 import com.jjimenez.prices.domain.exception.PriceNotFoundException;
 import com.jjimenez.prices.infrastructure.rest.dto.ErrorResponse;
 import java.time.LocalDateTime;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-  @ExceptionHandler(PriceNotFoundException.class)
+  @ExceptionHandler({PriceNotFoundException.class, BrandNotFoundException.class})
   public ResponseEntity<ErrorResponse> handlePriceNotFound(PriceNotFoundException ex) {
     ErrorResponse error = new ErrorResponse(
         LocalDateTime.now(),
@@ -21,5 +22,5 @@ public class GlobalExceptionHandler {
     );
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
   }
-  
+
 }

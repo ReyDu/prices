@@ -5,7 +5,7 @@ import lombok.Builder;
 
 @Builder
 public record PriceCriteria(
-    Long brandId,
+    Integer brandId,
     Long productId,
     LocalDateTime applicationDate
 ) {
