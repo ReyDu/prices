@@ -1,6 +1,4 @@
-# PRICES API
-
-Prices Management Service
+# Prices Management Service
 
 A robust Spring Boot application implementing Hexagonal Architecture to manage
 and query applicable product prices across different retail brands based on precise temporal
@@ -20,7 +18,7 @@ Tech Stack
 
     Java 21
 
-    Spring Boot (Web, Data JPA)
+    Spring Boot (Web, Data JPA, Actuator)
 
     H2 Database (In-memory persistence for local execution and testing)
 
@@ -74,3 +72,19 @@ Bash
 
 * **Swagger / OpenAPI**: Interactive API documentation is available at
   `http://localhost:8080/swagger-ui/index.html` once the application is running.
+
+## Design Decisions & Assumptions
+
+* **`Brand` as a Domain Enum**: The `Brand` entity has been modeled as a pure domain enum because
+  the business values (e.g., specific retail brands) are static, finite, and strictly tied to
+  business rules rather than dynamic database state. This keeps domain validations completely
+  independent of external persistence.
+* **In-Memory Persistence**: H2 is used to provide a lightweight, zero-configuration environment for
+  local execution and integration testing while maintaining standard JPA mappings.
+* **Price disambiguation in domain**: Price disambiguation is considered a domain rule and as such
+  is implemented
+  in the domain layer and not directly in the database even if this means bringing more data to
+  memory and slower execution.
+* **Overlapping Price Priority**: It is assumed that if multiple
+  price rates overlap for the same product and brand during a given time frame, the record with the
+  highest numerical priority strictly takes precedence.
