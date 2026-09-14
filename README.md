@@ -88,3 +88,8 @@ Bash
 * **Overlapping Price Priority**: It is assumed that if multiple
   price rates overlap for the same product and brand during a given time frame, the record with the
   highest numerical priority strictly takes precedence.
+* **Unit testing**: For this assignment, unit tests in domain and application are prioritized.
+  In a real world scenario, every class would be unit tested, including infrastructure and
+  controllers.
+  Integration tests are also included to validate end-to-end behavior.
+
