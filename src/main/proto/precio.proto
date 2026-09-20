@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.inditex.precio.infrastructure.inbound.grpc.generated;
+option java_multiple_files = true;
+
+service PrecioGrpcService {
+  rpc ConsultarPrecio (PrecioRequest) returns (PrecioResponse);
+}
+
+message PrecioRequest {
+  string application_date = 1; // ISO 8601 String for parsing to LocalDateTime
+  int64 product_id = 2;        // Long
+  int32 brand_id = 3;          // Integer
+}
+
+message PrecioResponse {
+  int64 product_id = 1;        // Long
+  int32 brand_id = 2;          // Integer
+  int32 price_list = 3;        // Integer
+  string start_date = 4;       // LocalDateTime -> String
+  string end_date = 5;         // LocalDateTime -> String
+  double price = 6;            // Double
+}
